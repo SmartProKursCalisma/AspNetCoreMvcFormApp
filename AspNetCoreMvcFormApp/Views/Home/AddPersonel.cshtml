@@ -1,0 +1,55 @@
+﻿@model PersonelAddVM
+@{
+    ViewData["Title"] = "Personel Ekle";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form asp-action="AddPersonel" asp-controller="Home" method="post">
+                <div>
+                    <label>Personel Adı</label>
+                    <input id="isim" autocomplete="off" class="form-control" type="text" placeholder="Personel Adı Giriniz..." asp-for="Fullname" />
+                    <span asp-validation-for="Fullname" class="text-danger"></span>
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input autocomplete="off" class="form-control" type="email" placeholder="mail adresi giriniz..." asp-for="Email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label>Aktiflik Durumu</label>
+                        <input class="form-check" type="checkbox" asp-for="IsActive" />
+                    </div>
+
+                </div>
+                <button type="submit" class="btn btn-outline-primary">Personel Oluştur</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#isim').on('input', function (e) {
+                var kelime =  $(this).val();
+                if (kelime.length < 10) {
+                    $(this).css("border","1px solid red");
+                }
+                else{
+                    $(this).css("border","1px solid green")
+                }
+            });
+        });
+        // $(document).ready(function(){
+        //     $("#name").on("change", function () {
+        //         alert("Handler for `change` called.");
+        //     });
+
+        // })
+    </script>
+}

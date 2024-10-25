@@ -1,0 +1,33 @@
+﻿@model Personel
+@{
+    ViewData["Title"] = "UpdatePersonel";
+}
+
+<h1>Personel Güncelle</h1>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <form asp-action="UpdatePersonel" asp-controller="Home" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div>
+                    <label>Personel Adı</label>
+                    <input class="form-control" type="text" placeholder="Personel Adı Giriniz..." asp-for="Fullname" />
+                </div>
+                <div>
+                    <label>Email</label>
+                    <input class="form-control" type="email" placeholder="mail adresi giriniz..." asp-for="Email" />
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <label>Aktiflik Durumu</label>
+                        <input class="form-check" type="checkbox" asp-for="IsActive" />
+                    </div>
+
+                </div>
+                <button type="submit" class="btn btn-outline-primary">Personel Bilgileri Güncelle</button>
+            </form>
+        </div>
+    </div>
+
+</div>

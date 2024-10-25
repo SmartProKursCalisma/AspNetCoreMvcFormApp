@@ -1,0 +1,6 @@
+﻿@model List<Personel>
+@{
+    ViewData["Title"] = "Personel Listesi";
+}
+
+@await Component.InvokeAsync("PersonelList",Model)
